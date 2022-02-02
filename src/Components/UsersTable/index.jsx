@@ -30,7 +30,6 @@ function TableList({data, deleteUser }) {
 
 function UsersTable() {
   const dispatch = useDispatch();
-  // const [loader, setLoader] =false)
 
 
   const deleteUser = async (username) => {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Label, InputField, Button, Grid, Col } from "./Styled";
 
-// import { Grid, Col } from "react-bootstrap";
 import axios from "axios";
 import { LoadingOutlined } from "@ant-design/icons";
 
@@ -56,7 +55,6 @@ function CreateUsers() {
       }
     } catch (e) {
       setLoader(false);
-      console.log("touch",{ e });
       if (e?.response?.data?.message?.message) {
         setErrMsg(e?.response?.data?.message?.message);
         setTimeout(() => {

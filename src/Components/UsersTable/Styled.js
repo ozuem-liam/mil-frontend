@@ -4,6 +4,10 @@ export const Container = styled.div`
   position: relative;
   padding: 0 0 0 0.5rem;
   margin-left: 8%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-left: 0;
+  }
 `;
 
 export const Row = styled.div`
@@ -19,6 +23,12 @@ export const TableRow = styled.div`
   padding-top: 2rem;
   padding-bottom: 10px;
   border-bottom: 3px solid rgba(17, 70, 143, 0.04);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    text-align: center;
+    margin-left: 10px;
+  }
 `;
 export const Prefix = styled.div`
   display: flex;

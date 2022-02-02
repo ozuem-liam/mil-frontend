@@ -7,6 +7,10 @@ export const Container = styled.div`
   margin-top: 5%;
   margin-left: 10%;
   padding-bottom: 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-left: 10px;
+  }
 `;
 
 export const Col = styled.div`
@@ -19,6 +23,10 @@ export const Col = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
 `;
 
 export const Label = styled.label`
@@ -42,6 +50,9 @@ export const InputField = styled(Input)`
   color: #5a5a5a;
   border: 1px solid #d4d4d4;
   margin-right: 10px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SelectField = styled(Select)`
@@ -62,4 +73,7 @@ export const Button = styled.button`
   background: #11468f;
   color: white;
   border-radius: 5px;
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `;
