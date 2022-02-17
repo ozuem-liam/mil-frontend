@@ -39,6 +39,21 @@ export const Label = styled.label`
   color: #11468f;
 `;
 
+export const BodyField = styled.textarea`
+  width: 220px;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 5px;
+
+  padding: 0px 0px 0px 16px;
+  color: #5a5a5a;
+  border: 1px solid #d4d4d4;
+  margin-right: 10px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const InputField = styled(Input)`
   width: 220px;
   height: 47px;

@@ -1,30 +1,27 @@
 import React, { useState } from "react";
-import { Container, Label, InputField, Button, Grid, Col } from "./Styled";
+import { Container, Label, BodyField, InputField, Button, Grid, Col } from "./Styled";
 
 import axios from "axios";
 import { LoadingOutlined } from "@ant-design/icons";
 
 function CreateUsers() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [userId, setUserId] = useState("");
   const [loader, setLoader] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
 
   const handleSubmit = async () => {
     const data = {
-      first_name: firstName,
-      last_name: lastName,
-      username: userName,
-      date_of_birth: dateOfBirth.split("-").reverse().join("-"),
+      title: title,
+      body: body,
+      userId: userId,
     };
     if (
-      firstName?.length < 1 ||
-      lastName?.length < 1 ||
-      userName?.length < 1 ||
-      dateOfBirth?.length < 1
+      title?.length < 1 ||
+      body?.length < 1 ||
+      userId?.length < 1
     ) {
       setErrMsg("* Fields are Required");
       setTimeout(() => {
@@ -35,7 +32,7 @@ function CreateUsers() {
 
     try {
       var response = await axios.post(
-        process.env.REACT_APP_URL + "api/user",
+        process.env.REACT_APP_URL + "posts",
         data,
         {
           headers: {
@@ -46,10 +43,9 @@ function CreateUsers() {
 
       if (response.status === 200) {
         setLoader(false);
-        setFirstName("");
-        setLastName("");
-        setUserName("");
-        setDateOfBirth("");
+        setTitle("");
+        setBody("");
+        setUserId("");
         window.location.reload();
         return
       }
@@ -74,46 +70,35 @@ function CreateUsers() {
       <Grid>
         <Col>
           <Label>
-            First name
+            Title
           </Label>
           <InputField
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="First name"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
           />
         </Col>
 
         <Col>
           <Label>
-            Last Name
+            Body
           </Label>
-          <InputField
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Last name"
+          <BodyField
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="Write something here"
           />
         </Col>
 
         <Col>
           <Label>
-            Username 
+            UserId
           </Label>
           <InputField
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="Username"
-          />
-        </Col>
-
-        <Col>
-          <Label>
-            Date of Birth
-          </Label>
-          <InputField
-            type="date"
-            value={dateOfBirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-            placeholder="Date of Birth"
+            type="number"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+            placeholder="User Id"
           />
         </Col>
     </Grid>

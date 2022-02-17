@@ -1,26 +1,26 @@
 import * as types from "./actionType";
 
 const initialState = {
-  users: [],
+  posts: [],
   loading: false,
   error: null,
 };
 
-export const UserReducers = (state = initialState, action) => {
+export const PostReducers = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_USERS_START:
+    case types.GET_POSTS_START:
       return {
         ...state,
         loading: true,
       };
-    case types.GET_USERS_SUCCESS:
+    case types.GET_POSTS_SUCCESS:
       return {
         ...state,
         loading: false,
-        users: action.payload,
+        posts: action.payload,
       };
 
-    case types.GET_USERS_ERROR:
+    case types.GET_POSTS_ERROR:
       return {
         ...state,
         loading: false,

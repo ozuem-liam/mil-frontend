@@ -1,6 +1,6 @@
 import { all } from "redux-saga/effects";
-import { userSaga } from "./UserRedux/saga";
+import { postSaga } from "./PostRedux/saga";
 
 export default function* rootSaga() {
-  yield all([...userSaga]);
+  yield all([...postSaga]);
 }

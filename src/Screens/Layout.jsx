@@ -1,12 +1,12 @@
 import React from 'react';
 
-import CreateUsers from '../Components/CreateUsers';
-import UsersTable from '../Components/UsersTable';
+import CreatePosts from '../Components/CreatePosts';
+import PostsTable from '../Components/PostsTable';
 export default function Layout() {
   return (
     <div>
-      <CreateUsers />
-      <UsersTable />
+      <CreatePosts />
+      <PostsTable />
     </div>
   )
 }

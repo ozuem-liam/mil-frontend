@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { Container, Header, TableRow, Prefix } from "./Styled";
 import { DeleteOutlined, LoadingOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersStart } from "../../redux/UserRedux/actions";
+import { getPostsStart } from "../../redux/PostRedux/actions";
 
 import { Table, Space } from "antd";
 import axios from "axios"
 import swal from "sweetalert"
 
 
-function TableList({data, deleteUser }) {
+function TableList({data, deletePost }) {
 
   return (
     <>
@@ -20,7 +20,7 @@ function TableList({data, deleteUser }) {
           <div style={{fontWeight: "600"}}>{item.username}</div>
           <div style={{fontWeight: "600"}}>{item.first_name + " " + item.last_name}</div>
           <div style={{fontWeight: "600"}}>{item.date_of_birth}</div>
-          <DeleteOutlined style={{color: "red"}} onClick={() => deleteUser(item.username)} />
+          <DeleteOutlined style={{color: "red"}} onClick={() => deletePost(item.username)} />
         </TableRow>
       )}
       )}
@@ -28,11 +28,11 @@ function TableList({data, deleteUser }) {
   )
 }
 
-function UsersTable() {
+function PostsTable() {
   const dispatch = useDispatch();
 
 
-  const deleteUser = async (username) => {
+  const deletePost = async (username) => {
     try {
       var response = await axios.delete(process.env.REACT_APP_URL + `api/${username}`, {
         headers: {
@@ -41,7 +41,7 @@ function UsersTable() {
       })
 
       if(response.status === 200) {
-        dispatch(getUsersStart());
+        dispatch(getPostsStart());
        swal({
          text: 'User Deleted Successfully',
          icon: "success"
@@ -63,13 +63,13 @@ function UsersTable() {
   })
 
   useEffect(() => {
-    dispatch(getUsersStart());
+    dispatch(getPostsStart());
   }, [dispatch]);
 
   if(data.length === 0) {
     return (
       <Container>
-        <Header>Users</Header>
+        <Header>Posts</Header>
         <Space size="middle">
           <Table style={{ display: "flex", position: "absolute", marginLeft: "50%" }}/>
         </Space>
@@ -81,13 +81,13 @@ function UsersTable() {
 
   return (
     <Container>
-        <Header>Users</Header>
+        <Header>Posts</Header>
         <br/>
         <Space size="middle">
-          {loading ? <LoadingOutlined /> : <TableList data={data} key={data.id} deleteUser={deleteUser} />}
+          {loading ? <LoadingOutlined /> : <TableList data={data} key={data.id} deletePost={deletePost} />}
         </Space>
     </Container>
   );
 }
 
-export default UsersTable;
+export default PostsTable;
