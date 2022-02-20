@@ -1,45 +1,44 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: relative;
-  padding: 0 0 0 0.5rem;
-  margin-left: 8%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    margin-left: 0;
-  }
+  padding: 40px;
+  width: 80%;
+  display: flex;
+  padding-bottom: 0;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const Row = styled.div`
-  margin-left: 3.5rem;
-  padding-right: 20%;
+  width: 100%
+  display: flex;
+  flex-direction: column;
 `;
 
-export const TableRow = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 7fr 1.5fr 1fr;
-  margin-right: 20%;
-  margin-left: 3.5rem;
-  padding-top: 2rem;
-  padding-bottom: 10px;
-  border-bottom: 3px solid rgba(17, 70, 143, 0.04);
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    text-align: center;
-    margin-left: 10px;
-  }
+export const PostRow = styled.div`
+  width: 100%;
 `;
-export const Prefix = styled.div`
+export const Body = styled.div`
+  width: 90%;
+  font-size: 30px;
+  margin: 0;
+  padding: 30px;
+`;
+export const Bin = styled.div`
+  width: 90%;
+  margin: 0;
+  font-size: 25px;
+  padding: 30px;
+  text-align: end;
+`;
+export const Title = styled.div`
   display: flex;
   background: #11468f;
-  width: 30px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  vertical-align: middle;
-  border-radius: 50%;
+  padding: 10px;
+  font-size: 35px;
+  width: 97%;
   color: #fff;
   font-weight: 450;
 `;
@@ -47,8 +46,8 @@ export const Prefix = styled.div`
 export const Header = styled.h1`
   font-weight: 500;
   padding: 10px 0px 10px 16px;
-  margin-right: 20%;
-  margin-left: 3rem;
+  position: relative;
+  width: 100%;
   margin-bottom: 0;
   letter-spacing: 1px;
   color: #373a3c;
