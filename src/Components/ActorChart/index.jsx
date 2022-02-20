@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Container } from "./Styled";
 import {Line} from 'react-chartjs-2';
 import { LoadingOutlined } from "@ant-design/icons";
 import axios from "axios"
@@ -38,7 +39,7 @@ function Chart() {
     });
     const labelData = Object.keys(counts)
     const dataSet = Object.values(counts)
-    
+
     const chartData = {
         labels: labelData,
         datasets: [
@@ -77,13 +78,13 @@ const getActorsApi = async () => {
 
 if(data.length === 0) {
     return (
-      <div>
-          Empty
-      </div>
+      <Container>
+          No data
+      </Container>
     )
   }
         return (
-            <div className='chart'>
+            <Container className='chart'>
                  {
                  loading ? <LoadingOutlined /> : 
                  <Line 
@@ -91,7 +92,7 @@ if(data.length === 0) {
                  options={{}}
                 />
                  }
-            </div>
+            </Container>
         )
 }
 
